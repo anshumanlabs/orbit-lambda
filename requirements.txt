@@ -3,4 +3,4 @@ mangum
 sqlalchemy
 google-genai
 pgvector
-psycopg2
+psycopg[binary]
