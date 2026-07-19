@@ -8,6 +8,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Orbit AI Assistant API!"}
+
 @app.get("/embed")
 async def embed_content(content: str):
     embedding = client.embed_content(content)
