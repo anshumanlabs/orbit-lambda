@@ -8,6 +8,12 @@ app = FastAPI(
     version="1.0.0"
 )
 
+@app.middleware("http")
+async def debug_path(request, call_next):
+    print("PATH:", request.url.path)
+    response = await call_next(request)
+    return response
+
 @app.get("/")
 async def root():
     return {"message": "Welcome to the Orbit AI Assistant API!"}
